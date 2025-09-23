@@ -1,0 +1,10 @@
+title: "Global KPI Pack"
+countries: ["IN","US","GB"]        # ISO2 codes
+start_year: 2000
+end_year: 2024
+indicators:
+  NY.GDP.MKTP.CD: "GDP (current US$)"
+  SP.DYN.LE00.IN: "Life expectancy at birth, total (years)"
+  EN.ATM.CO2E.PC: "CO2 emissions (metric tons per capita)"
+  EG.ELC.RNEW.ZS: "Renewable electricity output (% of total electricity output)"
+artifacts_dir: "artifacts"
