@@ -1,24 +1,41 @@
 name: monthly-report
+
 on:
-  schedule: [ { cron: "0 1 1 * *" } ]
+  schedule:
+    - cron: "0 1 1 * *"
   workflow_dispatch:
+
+# ✅ grant the GITHUB_TOKEN permission to create releases
+permissions:
+  contents: write
+
 jobs:
   build-report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12", cache: "pip" }
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
       - run: pip install -r requirements.txt
-      - run: python main.py --countries IN,US,GB --start 2000 --end 2024 --title "Global KPI Pack"
-      - uses: actions/upload-artifact@v4
+
+      - run: |
+          python main.py --countries IN,US,GB --start 2000 --end 2024 --title "Global KPI Pack"
+
+      - name: Upload PPT artifact
+        uses: actions/upload-artifact@v4
         with:
           name: kpi-report
           path: artifacts/reports/*.pptx
-      - name: Create release
+
+      - name: Create release (tag by run)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: "report-${{ github.run_id }}"
           name: "Automated KPI Report"
+          generate_release_notes: true
           files: artifacts/reports/*.pptx
