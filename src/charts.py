@@ -2,7 +2,12 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def line_chart(df: pd.DataFrame, indicator: str, label: str, outdir: str) -> str:
+def line_chart(
+        df: pd.DataFrame, 
+        indicator: str, 
+        label: str, 
+        outdir: Union[str, Path]
+    ) -> str:
     out = Path(outdir)
     out.mkdir(parents=True, exist_ok=True)
 
