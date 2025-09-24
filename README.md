@@ -1,3 +1,6 @@
+[![CI](https://github.com/raghavhvr/kpi-ppt/actions/workflows/ci.yml/badge.svg)](https://github.com/raghavhvr/kpi-ppt/actions/workflows/ci.yml)
+[![Monthly Report](https://github.com/raghavhvr/kpi-ppt/actions/workflows/monthly.yml/badge.svg)](https://github.com/raghavhvr/kpi-ppt/actions/workflows/monthly.yml)
+
 # Automated KPI Storytelling → Auto-PPT (Open Data)
 
 Generates a polished PowerPoint summarizing key KPIs across countries with charts + auto-narrative. Data: World Bank Indicators API (WDI).
