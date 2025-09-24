@@ -20,6 +20,10 @@ jobs:
       - run: pip install -U pip setuptools wheel
       - run: pip install -r requirements.txt
 
+      - run: pip install ruff mypy types-requests types-PyYAML
+      - run: mypy --install-types --non-interactive --ignore-missing-imports .
+
+
       - run: pip install ruff mypy
       - run: ruff check .
       - run: mypy --ignore-missing-imports .
