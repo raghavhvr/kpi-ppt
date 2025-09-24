@@ -13,7 +13,9 @@ def build_ppt(charts, insights_text: str, output_path: str, title: str) -> str:
     for ind_code, chart_path, caption in charts:
         s = prs.slides.add_slide(prs.slide_layouts[5])  # Title Only
         s.shapes.title.text = caption
-        left = Inches(0.5); top = Inches(1.6); height = Inches(5.0)
+        left = Inches(0.5)
+        top = Inches(1.6)
+        height = Inches(5.0)
         s.shapes.add_picture(str(chart_path), left, top, height=height)
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)

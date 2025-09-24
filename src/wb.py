@@ -1,5 +1,6 @@
 from __future__ import annotations
-import requests, pandas as pd
+import requests
+import pandas as pd
 from typing import List
 
 BASE = "https://api.worldbank.org/v2"

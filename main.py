@@ -1,5 +1,6 @@
 from __future__ import annotations
-import argparse, yaml
+import argparse
+import yaml
 from pathlib import Path
 from datetime import datetime, timezone
 
